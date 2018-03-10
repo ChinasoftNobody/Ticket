@@ -1,4 +1,4 @@
-package com.lgh.chinasoft.ticket.server.controller;
+package com.lgh.chinasoft.ticket.server.controller.guest;
 
 import com.lgh.chinasoft.ticket.server.common.Response;
 import com.lgh.chinasoft.ticket.server.model.User;
@@ -31,4 +31,12 @@ public class UserController {
         User resultUser = userService.register(user);
         return ResponseUtil.success(resultUser);
     }
+
+    @PostMapping(value = "/login",produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
+    @ApiOperation(value = "user login")
+    public Response login(@RequestBody User user){
+        User loginUser = userService.login(user.getNumber(),user.getPassword());
+        return ResponseUtil.success(loginUser);
+    }
+
 }

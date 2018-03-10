@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.lgh.chinasoft.ticket.server.dao.RoleRepo">
+
+    <select id="queryByName" resultType="com.lgh.chinasoft.ticket.server.model.Role" parameterType="java.lang.String">
+        SELECT * FROM t_role t WHERE t.name = #{name,jdbcType=VARCHAR} LIMIT 1;
+    </select>
+</mapper>

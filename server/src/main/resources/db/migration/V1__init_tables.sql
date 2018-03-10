@@ -5,3 +5,16 @@ CREATE TABLE t_user (
   name VARCHAR(128) NOT NULL ,
   password VARCHAR(128) NOT NULL
 );
+
+DROP TABLE IF EXISTS t_user_role;
+CREATE TABLE t_user_role(
+  user_id VARCHAR(32) NOT NULL ,
+  role_id VARCHAR(32) NOT NULL
+);
+
+DROP TABLE IF EXISTS t_role;
+CREATE TABLE t_role(
+  id VARCHAR(32) NOT NULL PRIMARY KEY ,
+  name VARCHAR(128) NOT NULL,
+  description VARCHAR(128) DEFAULT ''
+);

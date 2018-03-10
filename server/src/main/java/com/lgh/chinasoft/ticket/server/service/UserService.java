@@ -12,4 +12,12 @@ public interface UserService {
      * @return 已注册的用户
      */
     User register(User user);
+
+    /**
+     * 游客登录
+     * @param number number
+     * @param password pass
+     * @return loginUser
+     */
+    User login(String number, String password);
 }
