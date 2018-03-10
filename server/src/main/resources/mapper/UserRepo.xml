@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.lgh.chinasoft.ticket.server.dao.UserRepo">
+    <select id="queryByNumber" resultType="com.lgh.chinasoft.ticket.server.model.User">
+      SELECT * FROM t_user t WHERE t.number=#{number,jdbcType=VARCHAR};
+    </select>
+
+    <insert id="addUser" parameterType="com.lgh.chinasoft.ticket.server.model.User">
+      INSERT INTO t_user VALUES (#{id,jdbcType=VARCHAR},#{number,jdbcType=VARCHAR},#{name,jdbcType=VARCHAR},#{password,jdbcType=VARCHAR});
+    </insert>
+</mapper>
