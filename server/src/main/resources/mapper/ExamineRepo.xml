@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.lgh.chinasoft.ticket.server.dao.ExamineRepo">
+
+    <resultMap id="examineMap" type="com.lgh.chinasoft.ticket.server.model.Examine">
+        <id column="id" property="id" jdbcType="VARCHAR" javaType="java.lang.String"/>
+        <result column="store_id" property="storeId" jdbcType="VARCHAR" javaType="java.lang.String"/>
+        <result column="status" property="status" jdbcType="VARCHAR" javaType="java.lang.String"/>
+        <result column="message" property="message" jdbcType="VARCHAR" javaType="java.lang.String"/>
+        <result column="examiner_id" property="examinerId" jdbcType="VARCHAR" javaType="java.lang.String"/>
+    </resultMap>
+
+    <select id="queryByStoreId" parameterType="java.lang.String" resultMap="examineMap">
+      SELECT * FROM t_store_examine WHERE store_id = #{storeId};
+    </select>
+
+    <insert id="save" parameterType="com.lgh.chinasoft.ticket.server.model.Examine">
+        INSERT INTO t_store_examine VALUES (#{id},#{storeId},#{status},#{message},#{examineId});
+    </insert>
+</mapper>
